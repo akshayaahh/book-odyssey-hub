@@ -4,36 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Odyssey Hub</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="loading-screen">
+        <h1 class="animated-title">Welcome to Book Odyssey Hub</h1>
+    </div>
+
     <header>
-        <h1 class="fade-in">📖 Book Odyssey Hub</h1>
-        <p class="slide-in">Discover stories, explore worlds, and dive into your next adventure.</p>
+        <h1 id="site-title"> Book Odyssey Hub</h1>
+        <input type="text" id="moodInput" placeholder="Enter your mood..." />
+        <button id="recommendButton">Get Recommendation</button>
+        <p id="recommendationResult"></p>
     </header>
 
-    <section class="book-categories">
-        <div class="category sci-fi zoom-in" data-info="Futuristic worlds & advanced technology">🚀 Sci-Fi</div>
-        <div class="category mystery zoom-in" data-info="Unravel secrets & solve mysteries">🔍 Mystery</div>
-        <div class="category fantasy zoom-in" data-info="Magical realms & epic adventures">🧙‍♂️ Fantasy</div>
-        <div class="category romance zoom-in" data-info="Love stories that touch the heart">💖 Romance</div>
-        <div class="category thriller zoom-in" data-info="High-stakes suspense & action">🔥 Thriller</div>
-        <div class="category horror zoom-in" data-info="Spine-chilling & terrifying tales">👻 Horror</div>
-        <div class="category biography zoom-in" data-info="Real-life stories of inspiring people">📖 Biography</div>
-        <div class="category self-help zoom-in" data-info="Guides to personal growth & success">📚 Self-Help</div>
-        <div class="category historical zoom-in" data-info="Stories set in the past">🏰 Historical Fiction</div>
-    </section>
-    <section class="ai-recommendation">
-    <h2> Find Your Next Book</h2>
-    <p>Tell us your mood, and we'll suggest a book for you!</p>
-    <input type="text" id="moodInput" placeholder="Enter your mood (e.g., adventurous, romantic)">
-    <button id="recommendButton">Get Recommendation</button>
-    <p id="recommendationResult"></p>
-    </section>
+    <nav>
+        <ul>
+            <li><a href="#" class="genre" data-genre="adventurous">Adventure</a></li>
+            <li><a href="#" class="genre" data-genre="romantic">Romance</a></li>
+            <li><a href="#" class="genre" data-genre="mysterious">Mystery</a></li>
+            <li><a href="#" class="genre" data-genre="thrilling">Thriller</a></li>
+            <li><a href="#" class="genre" data-genre="futuristic">Sci-Fi</a></li>
+        </ul>
+    </nav>
 
-    <footer class="fade-in">
-        <p>Explore books that match your imagination. © 2025 Book Odyssey Hub</p>
-    </footer>
+    <section id="genre-details"></section>
+
+    <script src="script.js"></script>
 </body>
 </html>
