@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     categories.forEach(category => {
         category.addEventListener("click", () => {
-            const genre = category.textContent;
-            alert(`You selected ${genre} books! Feature coming soon!`);
+            const genre = category.classList[1]; // Get genre class name
+            window.location.href = `${genre}.html`; // Redirect to genre page
         });
     });
 });
