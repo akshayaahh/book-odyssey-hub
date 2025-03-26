@@ -4,32 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Odyssey Hub</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
+
+    <!-- Loading Animation -->
     <div id="loading-screen">
-        <h1 class="animated-title">Welcome to Book Odyssey Hub</h1>
+        <h1 class="fade-in">Book Odyssey Hub</h1>
     </div>
 
-    <header>
-        <h1 id="site-title"> Book Odyssey Hub</h1>
-        <input type="text" id="moodInput" placeholder="Enter your mood..." />
-        <button id="recommendButton">Get Recommendation</button>
-        <p id="recommendationResult"></p>
-    </header>
+    <!-- Main Content -->
+    <div id="main-content" class="hidden">
+        <header>
+            <h1>Book Odyssey Hub</h1>
+            <button id="dark-mode-toggle">Dark Mode</button>
+        </header>
 
-    <nav>
-        <ul>
-            <li><a href="#" class="genre" data-genre="adventurous">Adventure</a></li>
-            <li><a href="#" class="genre" data-genre="romantic">Romance</a></li>
-            <li><a href="#" class="genre" data-genre="mysterious">Mystery</a></li>
-            <li><a href="#" class="genre" data-genre="thrilling">Thriller</a></li>
-            <li><a href="#" class="genre" data-genre="futuristic">Sci-Fi</a></li>
-        </ul>
-    </nav>
+        <!-- Genre Selection -->
+        <section class="genres">
+            <h2>Explore Genres</h2>
+            <div class="genre-list">
+                <button class="genre" onclick="showAuthors('fantasy')">Fantasy</button>
+                <button class="genre" onclick="showAuthors('mystery')">Mystery</button>
+                <button class="genre" onclick="showAuthors('sci-fi')">Sci-Fi</button>
+                <button class="genre" onclick="showAuthors('romance')">Romance</button>
+                <button class="genre" onclick="showAuthors('thriller')">Thriller</button>
+                <button class="genre" onclick="showAuthors('history')">History</button>
+                <button class="genre" onclick="showAuthors('adventure')">Adventure</button>
+                <button class="genre" onclick="showAuthors('horror')">Horror</button>
+                <button class="genre" onclick="showAuthors('philosophy')">Philosophy</button>
+                <button class="genre" onclick="showAuthors('biography')">Biography</button>
+            </div>
+        </section>
 
-    <section id="genre-details"></section>
+        <!-- Author Section (Dynamic) -->
+        <section id="authors-section" class="hidden">
+            <h2>Authors</h2>
+            <div id="author-list"></div>
+        </section>
 
-    <script src="script.js"></script>
+        <!-- Books Section (Dynamic) -->
+        <section id="books-section" class="hidden">
+            <h2>Books</h2>
+            <div id="book-list"></div>
+        </section>
+    </div>
+
 </body>
 </html>
