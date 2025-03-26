@@ -1,64 +1,45 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const loadingScreen = document.getElementById("loading-screen");
-    const mainContent = document.getElementById("main-content");
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
 
-    setTimeout(() => {
-        loadingScreen.style.display = "none";  // Hide loading animation
-        mainContent.style.display = "block";   // Show the main website
-    }, 2500);  // Adjust timing if needed
-});
-
-// Dark Mode Toggle
-const darkModeToggle = document.getElementById("dark-mode-toggle");
-darkModeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-});
-
-// Display Genres
-function displayGenres() {
-    const genreContainer = document.getElementById("genre-list");
-    genreContainer.innerHTML = "";
-    Object.keys(genres).forEach(genre => {
-        const button = document.createElement("button");
-        button.classList.add("genre");
-        button.innerText = genre;
-        button.addEventListener("click", () => displayAuthors(genre));
-        genreContainer.appendChild(button);
-    });
+/* General Styles */
+body {
+    font-family: 'Caveat', cursive;
+    background-color: #f4f4f4; /* Light mode default */
+    color: #333;
+    transition: background 0.5s ease, color 0.5s ease;
 }
 
-// Function to Show Authors
-function displayAuthors(genre) {
-    const authorContainer = document.getElementById("author-list");
-    authorContainer.innerHTML = `<h2>Authors in ${genre}</h2>`;
-    genres[genre].forEach(author => {
-        const authorDiv = document.createElement("div");
-        authorDiv.classList.add("author");
-        const data = authors[author] || {};
-        authorDiv.innerHTML = `<strong>${author}</strong><br>
-            Born: ${data.born} ${data.died ? `- Died: ${data.died}` : ""} <br>
-            Notable Works: ${data.notableWorks ? data.notableWorks.join(", ") : "Unknown"} <br>
-            Country: ${data.country || "Unknown"} <br>
-            <button onclick="displayBooks('${author}')">View Books</button>`;
-        authorContainer.appendChild(authorDiv);
-    });
+/* Dark Mode */
+.dark-mode {
+    background-color: #000 !important;
+    color: #fff !important;
 }
 
-// Function to Show Books
-function displayBooks(author) {
-    const bookContainer = document.getElementById("book-list");
-    bookContainer.innerHTML = `<h2>Books by ${author}</h2>`;
-    Object.keys(books).forEach(book => {
-        const bookDiv = document.createElement("div");
-        bookDiv.classList.add("book");
-        const data = books[book];
-        bookDiv.innerHTML = `<strong>${book}</strong><br>
-            ${data.description} <br>
-            <a href="${data.link}" target="_blank">Read More</a>`;
-        bookContainer.appendChild(bookDiv);
-    });
+/* Book Odyssey Hub Logo */
+.logo {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+    text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.7); /* Optional glow */
+    transition: all 0.5s ease;
 }
 
-// Initialize the website
-displayGenres();
+/* Dark Mode Button */
+#darkModeToggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #222;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
 
+#darkModeToggle:hover {
+    background: #444;
+}
