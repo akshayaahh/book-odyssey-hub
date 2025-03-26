@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     categories.forEach(category => {
         category.addEventListener("click", () => {
-            alert(`Explore ${category.textContent} books soon!`);
+            const genre = category.textContent;
+            alert(`You selected ${genre} books! Feature coming soon!`);
         });
     });
 });
-
