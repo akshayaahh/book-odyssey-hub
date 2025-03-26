@@ -1,9 +1,11 @@
-// Wait for the page to fully load before displaying content
 document.addEventListener("DOMContentLoaded", () => {
+    const loadingScreen = document.getElementById("loading-screen");
+    const mainContent = document.getElementById("main-content");
+
     setTimeout(() => {
-        document.getElementById("loading-screen").style.display = "none";
-        document.getElementById("main-content").classList.remove("hidden");
-    }, 2500); // Matches fadeOut animation time
+        loadingScreen.style.display = "none";  // Hide loading animation
+        mainContent.style.display = "block";   // Show the main website
+    }, 2500);  // Adjust timing if needed
 });
 
 // Dark Mode Toggle
@@ -12,30 +14,7 @@ darkModeToggle.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
 });
 
-// Genre Data (Example Genres)
-const genres = {
-    Fiction: ["J.K. Rowling", "George Orwell", "Jane Austen"],
-    Mystery: ["Agatha Christie", "Arthur Conan Doyle", "Dan Brown"],
-    ScienceFiction: ["Isaac Asimov", "Philip K. Dick", "H.G. Wells"],
-    Fantasy: ["J.R.R. Tolkien", "C.S. Lewis", "Brandon Sanderson"],
-    Horror: ["Stephen King", "H.P. Lovecraft", "Mary Shelley"]
-};
-
-// Author Data (Example)
-const authors = {
-    "J.K. Rowling": { born: "1965", notableWorks: ["Harry Potter"], awards: ["British Book Awards"], country: "UK" },
-    "George Orwell": { born: "1903", died: "1950", notableWorks: ["1984", "Animal Farm"], country: "UK" },
-    "Agatha Christie": { born: "1890", died: "1976", notableWorks: ["Murder on the Orient Express"], awards: ["Edgar Award"], country: "UK" }
-};
-
-// Books Data (Example)
-const books = {
-    "Harry Potter": { description: "A young wizard's journey through Hogwarts.", link: "https://example.com/harrypotter" },
-    "1984": { description: "A dystopian novel about surveillance.", link: "https://example.com/1984" },
-    "Murder on the Orient Express": { description: "A famous detective investigates a train murder.", link: "https://example.com/murderorient" }
-};
-
-// Function to Display Genres
+// Display Genres
 function displayGenres() {
     const genreContainer = document.getElementById("genre-list");
     genreContainer.innerHTML = "";
@@ -48,7 +27,7 @@ function displayGenres() {
     });
 }
 
-// Function to Display Authors
+// Function to Show Authors
 function displayAuthors(genre) {
     const authorContainer = document.getElementById("author-list");
     authorContainer.innerHTML = `<h2>Authors in ${genre}</h2>`;
@@ -65,7 +44,7 @@ function displayAuthors(genre) {
     });
 }
 
-// Function to Display Books
+// Function to Show Books
 function displayBooks(author) {
     const bookContainer = document.getElementById("book-list");
     bookContainer.innerHTML = `<h2>Books by ${author}</h2>`;
@@ -82,3 +61,4 @@ function displayBooks(author) {
 
 // Initialize the website
 displayGenres();
+
